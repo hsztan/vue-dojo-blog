@@ -10,19 +10,27 @@
 </template>
 
 <script>
-import getPosts from "../composables/getPosts";
-import PostList from "../components/PostList.vue";
-import Spinner from "../components/Spinner.vue";
+import getPosts from '../composables/getPosts'
+import PostList from '../components/PostList.vue'
+import Spinner from '../components/Spinner.vue'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: { PostList, Spinner },
   setup() {
-    const { posts, error, load } = getPosts();
+    const { posts, error, load } = getPosts()
 
-    load();
+    load()
 
-    return { posts, error };
-  },
-};
+    return { posts, error }
+  }
+}
 </script>
+
+<style>
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+</style>

@@ -19,6 +19,28 @@
         "webdev",
         "coding"
       ]
+    },
+    {
+      "title": "New life in the tropics",
+      "body": "Such is life in the tropics as seen by many in Lima, Peru. We need to change our goals in life.",
+      "tags": [
+        "css",
+        "coaching",
+        "life",
+        "hellworld"
+      ],
+      "id": 3
+    },
+    {
+      "title": "Go home",
+      "body": "This post will post and then go to the home route using the router object using the composition API",
+      "tags": [
+        "composition",
+        "router",
+        "api",
+        "vue"
+      ],
+      "id": 4
     }
   ]
 }
