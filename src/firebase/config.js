@@ -1,6 +1,11 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
 
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyCq6PuwuZVuvrwMqyiGpcaox2wdGkYrgdA',
   authDomain: 'vue-firebase-sites-peluso.firebaseapp.com',
@@ -10,10 +15,10 @@ const firebaseConfig = {
   appId: '1:550483390363:web:28a790e644da70fc8dbb3e'
 }
 
-// init firebase
-firebase.initializeApp(firebaseConfig)
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
 
 // init firestore service
-const projectFirestore = firebase.firestore()
+const db = getFirestore(app)
 
-export { projectFirestore }
+export { db }

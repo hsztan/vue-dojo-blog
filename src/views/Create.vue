@@ -18,6 +18,8 @@
 <script>
 import { ref } from '@vue/reactivity'
 import { useRouter } from 'vue-router'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../firebase/config'
 
 export default {
   setup() {
@@ -29,7 +31,7 @@ export default {
     const router = useRouter()
     console.log(router)
 
-    const handleKeydown = function() {
+    const handleKeydown = function () {
       tag.value = tag.value.replace(/\s/g, '')
       if (!tags.value.includes(tag.value)) {
         tags.value.push(tag.value)
@@ -40,15 +42,14 @@ export default {
       const post = {
         title: title.value,
         body: body.value,
-        tags: tags.value
+        tags: tags.value,
+        createdAt: serverTimestamp()
       }
-      const res = await fetch('http://localhost:3000/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(post)
-      })
+
+      const postsColl = collection(db, 'posts')
+      const res = await addDoc(postsColl, post)
+      console.log(res)
+
       router.push({ name: 'Home' })
     }
 
